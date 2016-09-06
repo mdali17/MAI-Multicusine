@@ -46,66 +46,6 @@ $('#susubmit').click(function(){
 	else
         {
 	$(".form-control").css('border','1px solid #ccc');
-	cnt=0;
-	cnt1=0;
-	for(i=0;i<mail.length;i++)
-	{
-	if(mail[i]=="@"){
-	cnt=cnt+1;
-	}
-	}
-	for(i=0;i<pwd.length;i++)
-		{
-		if(pwd[i]=="@" || pwd[i]=="." || pwd[i]==","){
-			cnt1=cnt1+1;
-		}
-		}
-	if(cnt==0||mail.indexOf("@")==0||mail.indexOf(" ")!=-1||mail.indexOf("@")+1==mail.indexOf(".")||cnt>1||mail.indexOf(".")==mail.length-1||mail.indexOf("@")==mail.length-1||mail.indexOf(".")==mail.length-1||mail.indexOf(".")<mail.length-4){
-   	$("#emptyerror").css('display','none');
-	$("#nameerror").css('display','none');
-	$("#pwderror").css('display','none');
-	$("#rpwderror").css('display','none');
-	$("#moberror").css('display','none');
-	$("#mailid").css('border','1px red solid');
-	$("#mailerror").css('display','block');
-	$("#mailerror").css('color','red');
-	$("#mailid").focus();
-	}
-	else if(pwd.length<6 || cnt1!=1 )	
-	{	$("#emptyerror").css('display','none');
-		$("#mailerror").css('display','none');
-		$("#rpwderror").css('display','none');
-		$("#moberror").css('display','none');
-		$("#nameerror").css('display','none');
-		$("#pwd").css('border','1px red solid');
-		$("#pwderror").css('display','block');
-		$("#pwderror").css('color','red');
-		$("#pwd").focus();
-	} 
-	else if(pwd!=rpwd)
-	{	$("#emptyerror").css('display','none');
-		$("#mailerror").css('display','none');
-		$("#nameerror").css('display','none');
-		$("#moberror").css('display','none');
-		$("#pwderror").css('display','none');
-		$("#rpwd").css('border','1px red solid');
-		$("#rpwderror").css('display','block');
-		$("#rpwderror").css('color','red');
-		$("#rpwd").focus();
-	}
-	else if(mob.length!=10 || isNaN(mob))
-	{	$("#emptyerror").css('display','none');
-		$("#mailerror").css('display','none');
-		$("#nameerror").css('display','none');
-		$("#pwderror").css('display','none');
-		$("#rpwderror").css('display','none');
-		$("#mob").css('border','1px red solid');
-		$("#moberror").css('display','block');
-		$("#moberror").css('color','red');
-		$("#mob").focus();
-	}
-	else
-	{
        /* localStorage.name=names;
 	localStorage.pwd=pwd;
         localStorage.add=add;
@@ -131,7 +71,6 @@ $('#susubmit').click(function(){
 	alert("Mail Failed.");
 });	
 	}
-}
 	});
 
 $('#lgsubmit').click(function(){
