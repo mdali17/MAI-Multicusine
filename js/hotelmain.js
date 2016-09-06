@@ -54,6 +54,82 @@ var juices = [
   { "no": 41, "dishname": "Faluda", "price":150 }
 ];
 $( document ).ready(function() {
+	var pwd;
+	$("#pwd").change(function() {
+		pwd=$('#pwd').val();
+		var cnt1=0;
+		for(i=0;i<pwd.length;i++)
+		{
+		if(pwd[i]=="@" || pwd[i]=="." || pwd[i]==","){
+			cnt1=cnt1+1;
+		}
+		}
+		if(pwd.length<6 || cnt1!=1 )	
+		{	
+		$("#pwd").css('border','1px red solid');
+		$("#pwderror").css('display','block');
+		$("#pwderror").css('color','red');
+		$("#pwd").focus();
+	  }else{
+		$("#pwd").css('border','1px solid #ccc');
+		$("#pwderror").css('display','none');
+	  } 
+	});
+	
+	$("#mailid").change(function() {
+		var mail=$('#mailid').val();
+		var cnt=0;
+	for(i=0;i<mail.length;i++)
+	{
+	if(mail[i]=="@"){
+	cnt=cnt+1;
+	}
+	}
+	if(cnt==1){
+	var dotCheck=mail.substring(mail.indexOf("@"));
+	if(mail.indexOf("@")==0||mail.indexOf(" ")!=-1||mail.indexOf("@")+1==mail.indexOf(".")||mail.indexOf(".")==mail.length-1||mail.indexOf("@")==mail.length-1||mail.indexOf(".")==mail.length-1||dotCheck.indexOf(".")<dotCheck.length-4){
+	$("#mailid").css('border','1px red solid');
+	$("#mailerror").css('display','block');
+	$("#mailerror").css('color','red');
+	$("#mailid").focus();
+	}else{
+	$("#mailid").css('border','1px solid #ccc');
+	$("#mailerror").css('display','none');
+	}
+	}else{
+	$("#mailid").css('border','1px red solid');
+	$("#mailerror").css('display','block');
+	$("#mailerror").css('color','red');
+	$("#mailid").focus();
+	}		
+	});
+	$("#rpwd").change(function() {
+	var rpwd=$('#rpwd').val();
+	if(pwd!=rpwd)
+	{
+		$("#rpwd").css('border','1px red solid');
+		$("#rpwderror").css('display','block');
+		$("#rpwderror").css('color','red');
+		$("#rpwd").focus();
+	}
+	else {
+		$("#rpwd").css('border','1px solid #ccc');
+		$("#rpwderror").css('display','none');
+	}
+	});
+	$("#mob").change(function() {
+		var mob=$('#mob').val();
+		if(mob.length!=10 || isNaN(mob))
+		{
+		$("#mob").css('border','1px red solid');
+		$("#moberror").css('display','block');
+		$("#moberror").css('color','red');
+		$("#mob").focus();
+	}else{
+		$("#mob").css('border','1px solid #ccc');
+		$("#moberror").css('display','none');
+	}
+	});
   $('#edit').click(function(){
    $('#edt').hide();
    $('#can').show();
