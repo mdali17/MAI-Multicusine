@@ -33,6 +33,7 @@ background-color:#329627;
 </script>
 <script type="text/javascript">
 $( document ).ready(function() {
+    $("input").prop('disabled', false);
     if(localStorage.name!=undefined){
 	    $('#log').hide();
 		$('#sign').hide();
@@ -134,7 +135,7 @@ $( document ).ready(function() {
         <div id="emptyerror1" style="display:none;text-align:center">Fill all the Fields to Proceed</div>
         E-Mail : <input type="text" id="logmail" class="form-control" placeholder="E-Mail" /><br>
         Password : <input type="password" id="logpwd" class="form-control" placeholder="Password" /><br>
-        <div id="invalid" style="display:none;color:red">Invalid username or Password</div><br/>
+        <div id="invalid" style="display:none;color:red">Email/Password combination is not valid</div><br/>
 	<input type="checkbox" id="show-password"/> Show Password<br/><br/>
         <a href="#"><span onclick="forget();">Forget Password?</span></a><br/><br/>
 	<a href="#"><span onclick="signup();">New User Register</span></a>
