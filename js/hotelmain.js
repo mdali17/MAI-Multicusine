@@ -55,6 +55,9 @@ var juices = [
 ];
 $( document ).ready(function() {
 	var pwd;
+	/*$('input[type="checkbox"]').change(function() {
+    alert ("The element with id " + this.id + " changed.");
+   });*/
 	$("#pwd").change(function() {
 		pwd=$('#pwd').val();
 		var cnt1=0;
@@ -155,61 +158,145 @@ $('#table1').on('check.bs.table', function (e, row) {
 });
 $('#table1').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no === row.no) {
+    if (value.no == row.no) {
       checkedRows.splice(index,1);
     }
   });
  });
+ $('#table1').on('check-all.bs.table', function (e, name, args) {
+	 $.each(starter, function(index, value) {
+      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+  });
+});
+$('#table1').on('uncheck-all.bs.table', function (e, name, args) {
+		 for(i=0;i<starter.length;i++){
+		  for(j=0;j<checkedRows.length;j++){
+			if (checkedRows[j].no == starter[i].no) {
+				checkedRows.splice(j,1);
+			}
+		  }
+		 }
+});
 $('#table2').on('check.bs.table', function (e, row) {
    checkedRows.push({no:row.no,name: row.dishname, price: row.price});
 });
 $('#table2').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no === row.no) {
+    if (value.no == row.no) {
       checkedRows.splice(index,1);
     }
   });
  });
+ $('#table2').on('check-all.bs.table', function (e, name, args) {
+	 $.each(maindish, function(index, value) {
+      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+  });
+});
+$('#table2').on('uncheck-all.bs.table', function (e, name, args) { 
+      for(i=0;i<maindish.length;i++){
+		  for(j=0;j<checkedRows.length;j++){
+			if (checkedRows[j].no == maindish[i].no) {
+				checkedRows.splice(j,1);
+			}
+		  }
+		 }
+});
 $('#table3').on('check.bs.table', function (e, row) {
    checkedRows.push({no:row.no,name: row.dishname, price: row.price});
 });
 $('#table3').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no === row.no) {
+    if (value.no == row.no) {
       checkedRows.splice(index,1);
     }
   });
  });
+ $('#table3').on('check-all.bs.table', function (e, name, args) {
+	 $.each(vegstarter, function(index, value) {
+      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+  });
+});
+$('#table3').on('uncheck-all.bs.table', function (e, name, args) { 
+      for(i=0;i<vegstarter.length;i++){
+		  for(j=0;j<checkedRows.length;j++){
+			if (checkedRows[j].no == vegstarter[i].no) {
+				checkedRows.splice(j,1);
+			}
+		  }
+		 }
+});
 $('#table4').on('check.bs.table', function (e, row) {
    checkedRows.push({name: row.dishname, price: row.price});
 });
 $('#table4').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no === row.no) {
+    if (value.no == row.no) {
       checkedRows.splice(index,1);
     }
   });
  });
+ $('#table4').on('check-all.bs.table', function (e, name, args) {
+	 $.each(vegmaindish, function(index, value) {
+      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+  });
+});
+$('#table4').on('uncheck-all.bs.table', function (e, name, args) { 
+     for(i=0;i<vegmaindish.length;i++){
+		  for(j=0;j<checkedRows.length;j++){
+			if (checkedRows[j].no == vegmaindish[i].no) {
+				checkedRows.splice(j,1);
+			}
+		  }
+		 }
+});
 $('#table5').on('check.bs.table', function (e, row) {
    checkedRows.push({name: row.dishname, price: row.price});
 });
 $('#table5').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no === row.no) {
+    if (value.no == row.no) {
       checkedRows.splice(index,1);
     }
   });
  });
+ $('#table5').on('check-all.bs.table', function (e, name, args) {
+	 $.each(ice, function(index, value) {
+      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+  });
+});
+$('#table5').on('uncheck-all.bs.table', function (e, name, args) { 
+      for(i=0;i<ice.length;i++){
+		  for(j=0;j<checkedRows.length;j++){
+			if (checkedRows[j].no == ice[i].no) {
+				checkedRows.splice(j,1);
+			}
+		  }
+		 }
+});
 $('#table6').on('check.bs.table', function (e, row) {
    checkedRows.push({name: row.dishname, price: row.price});
 });
 $('#table6').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no === row.no) {
+    if (value.no == row.no) {
       checkedRows.splice(index,1);
     }
   });
  });
+ $('#table6').on('check-all.bs.table', function (e, name, args) {
+	 $.each(juices, function(index, value) {
+      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+  });
+});
+$('#table6').on('uncheck-all.bs.table', function (e, name, args) { 
+           for(i=0;i<juices.length;i++){
+		  for(j=0;j<checkedRows.length;j++){
+			if (checkedRows[j].no == juices[i].no) {
+				checkedRows.splice(j,1);
+			}
+		  }
+		 }
+});
  $("#show-password").on('change' , function(){
     if($(this).is(':checked')){
 	$('#logpwd').tooltip({title : $('#logpwd').val(), placement:'bottom',trigger:'auto'})
@@ -306,6 +393,7 @@ function nonveg()
 {
 $('#veg').css('display','none');
 $('#maincontent').css('display','none');
+$('#salads').css('display','none');
 //$('#nonveg').css("background-image", "url(images/6.jpg)");  
 $('#nonveg').css('display','block');
 $('#table1').bootstrapTable('load', starter);
@@ -315,6 +403,7 @@ function veg()
 {
 $('#maincontent').css('display','none');
 $('#nonveg').css('display','none');
+$('#salads').css('display','none');
 //$('#veg').css("background-image", "url(images/7.jpg)");  
 $('#veg').css('display','block');
 $('#table3').bootstrapTable('load', vegstarter);
