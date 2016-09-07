@@ -79,6 +79,7 @@ $('#lgsubmit').click(function(){
 		   var count=0;
            if(!usermail||!pwd){
 	     $("#emptyerror1").css('display','block');
+		 $("#emptyerror1").css('color','red');
 	   if(!usermail){
 	    $("#logmail").css('border','1px red solid');
 	    }
