@@ -1,58 +1,6 @@
 var checkedRows = [];
 var loginCheck=false;
-var starter = [
-  { "no": 1, "dishname": "Fried Chicken", "price":130 }, 
-  { "no": 2, "dishname": "Tandoori(Half)", "price":150 },
-  { "no": 3, "dishname": "Tandoori(Full)", "price":280 },
-  { "no": 4, "dishname": "prawn Fry", "price":165 },
-  { "no": 5, "dishname": "Crab Finger(4 pcs)", "price":120 },
-  { "no": 6, "dishname": "Fish Fry", "price":140 }, 
-  { "no": 7, "dishname": "Kabab", "price":110 },
-  { "no": 8, "dishname": "Beef Roll(1 pc)", "price":100 },
-  { "no": 9, "dishname": "Chicken Lollipop", "price":120 },
-  { "no": 10, "dishname": "Chicken Tikka", "price":140 },
-];
-var maindish = [
-  { "no": 11, "dishname": "Chicken Biriyani", "price":110 }, 
-  { "no": 12, "dishname": "Mutton Biriyani", "price":130 },
-  { "no": 13, "dishname": "Prawn Biriyani", "price":145 },
-  { "no": 14, "dishname": "Mixed Biriyani(Chicken+prawn)", "price":160 },
-  { "no": 15, "dishname": "Chicken Fried Rice", "price":130 },
-  { "no": 16, "dishname": "Mutton Fried Rice", "price":150 }, 
-  { "no": 17, "dishname": "Mixed Fried Rice(Chicken+prawn)", "price":170 },
-  { "no": 18, "dishname": "Chicken Noodles", "price":130 },
-  { "no": 19, "dishname": "Mixed Noodles(Chicken+prawn)", "price":140 },
-  { "no": 20, "dishname": "Chicken American Chopsey", "price":130 },
-];
-var vegstarter = [
-  { "no": 21, "dishname": "Mushroom Fry", "price":100 }, 
-  { "no": 22, "dishname": "Potato Fry", "price":120 },
-  { "no": 23, "dishname": "Mixed Potato and Onion Fry", "price":150 }
-];
-var vegmaindish = [
-  { "no": 24, "dishname": "Veg Biriyani", "price":80 }, 
-  { "no": 25, "dishname": "Pulav", "price":110 },
-  { "no": 26, "dishname": "Veg Fried Rice", "price":120 },
-  { "no": 27, "dishname": "Schewan Veg Fried Rice", "price":130 }, 
-  { "no": 28, "dishname": "Veg Noodles", "price":120 },
-  { "no": 29, "dishname": "Vegetable American Chopsey", "price":120 },
-  { "no": 30, "dishname": "Nan", "price":100 }
-];
-var ice = [
-  { "no": 31, "dishname": "Vanila", "price":80 }, 
-  { "no": 32, "dishname": "Chocolate", "price":110 },
-  { "no": 33, "dishname": "Butterscotch", "price":120 },
-  { "no": 34, "dishname": "Strawberry", "price":130 } 
-];
-var juices = [
-  { "no": 35, "dishname": "Apple", "price":130 },
-  { "no": 36, "dishname": "Grapes", "price":90 },
-  { "no": 37, "dishname": "Pine Apple", "price":110 }, 
-  { "no": 38, "dishname": "Guvua", "price":100 },
-  { "no": 39, "dishname": "Orange", "price":100 },
-  { "no": 40, "dishname": "Mango", "price":100 },
-  { "no": 41, "dishname": "Faluda", "price":150 }
-];
+var starter = [],maindish=[],vegstarter=[],vegmaindish=[],ice=[],juices=[];
 $( document ).ready(function() {
 	var pwd;
 	/*$('input[type="checkbox"]').change(function() {
@@ -388,36 +336,6 @@ function logout()
 checkedRows = [];
 localStorage.clear();
 window.location.reload(true);
-}
-function nonveg()
-{
-$('#veg').css('display','none');
-$('#maincontent').css('display','none');
-$('#salads').css('display','none');
-//$('#nonveg').css("background-image", "url(images/6.jpg)");  
-$('#nonveg').css('display','block');
-$('#table1').bootstrapTable('load', starter);
-$('#table2').bootstrapTable('load', maindish);
-}
-function veg()
-{
-$('#maincontent').css('display','none');
-$('#nonveg').css('display','none');
-$('#salads').css('display','none');
-//$('#veg').css("background-image", "url(images/7.jpg)");  
-$('#veg').css('display','block');
-$('#table3').bootstrapTable('load', vegstarter);
-$('#table4').bootstrapTable('load', vegmaindish);
-}
-function juice()
-{
-$('#maincontent').css('display','none');
-$('#nonveg').css('display','none');
-//$('#salads').css("background-image", "url(images/9.jpg)");  
-$('#veg').css('display','none');
-$('#salads').css('display','block');
-$('#table5').bootstrapTable('load', ice);
-$('#table6').bootstrapTable('load', juices);
 }
 function home()
 {
