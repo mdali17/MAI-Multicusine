@@ -102,144 +102,144 @@ $('#cpwd').click(function(){
   $( "#datepicker" ).datepicker({dateFormat:"dd M yy",minDate:+0}).datepicker("setDate",new Date());
   $('#timepicker').timepicker(); 
 $('#table1').on('check.bs.table', function (e, row) {
-   checkedRows.push({no:row.no, name: row.dishname, price: row.price});
+   checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
 $('#table1').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no == row.no) {
+    if (value.no == row.MenuId) {
       checkedRows.splice(index,1);
     }
   });
  });
  $('#table1').on('check-all.bs.table', function (e, name, args) {
 	 $.each(starter, function(index, value) {
-      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+      checkedRows.push({no:value.MenuId, name: value.MenuName, price: value.MenuPrice});
   });
 });
 $('#table1').on('uncheck-all.bs.table', function (e, name, args) {
 		 for(i=0;i<starter.length;i++){
 		  for(j=0;j<checkedRows.length;j++){
-			if (checkedRows[j].no == starter[i].no) {
+			if (checkedRows[j].no == starter[i].MenuId) {
 				checkedRows.splice(j,1);
 			}
 		  }
 		 }
 });
 $('#table2').on('check.bs.table', function (e, row) {
-   checkedRows.push({no:row.no,name: row.dishname, price: row.price});
+   checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
 $('#table2').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no == row.no) {
+    if (value.no == row.MenuId) {
       checkedRows.splice(index,1);
     }
   });
  });
  $('#table2').on('check-all.bs.table', function (e, name, args) {
 	 $.each(maindish, function(index, value) {
-      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+      checkedRows.push({no:value.MenuId, name: value.MenuName, price: value.MenuPrice});
   });
 });
 $('#table2').on('uncheck-all.bs.table', function (e, name, args) { 
       for(i=0;i<maindish.length;i++){
 		  for(j=0;j<checkedRows.length;j++){
-			if (checkedRows[j].no == maindish[i].no) {
+			if (checkedRows[j].no == maindish[i].MenuId) {
 				checkedRows.splice(j,1);
 			}
 		  }
 		 }
 });
 $('#table3').on('check.bs.table', function (e, row) {
-   checkedRows.push({no:row.no,name: row.dishname, price: row.price});
+   checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
 $('#table3').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no == row.no) {
+    if (value.no == row.MenuId) {
       checkedRows.splice(index,1);
     }
   });
  });
  $('#table3').on('check-all.bs.table', function (e, name, args) {
 	 $.each(vegstarter, function(index, value) {
-      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+      checkedRows.push({no:value.MenuId, name: value.MenuName, price: value.MenuPrice});
   });
 });
 $('#table3').on('uncheck-all.bs.table', function (e, name, args) { 
       for(i=0;i<vegstarter.length;i++){
 		  for(j=0;j<checkedRows.length;j++){
-			if (checkedRows[j].no == vegstarter[i].no) {
+			if (checkedRows[j].no == vegstarter[i].MenuId) {
 				checkedRows.splice(j,1);
 			}
 		  }
 		 }
 });
 $('#table4').on('check.bs.table', function (e, row) {
-   checkedRows.push({name: row.dishname, price: row.price});
+   checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
 $('#table4').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no == row.no) {
+    if (value.no == row.MenuId) {
       checkedRows.splice(index,1);
     }
   });
  });
  $('#table4').on('check-all.bs.table', function (e, name, args) {
 	 $.each(vegmaindish, function(index, value) {
-      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+      checkedRows.push({no:value.MenuId, name: value.MenuName, price: value.MenuPrice});
   });
 });
 $('#table4').on('uncheck-all.bs.table', function (e, name, args) { 
      for(i=0;i<vegmaindish.length;i++){
 		  for(j=0;j<checkedRows.length;j++){
-			if (checkedRows[j].no == vegmaindish[i].no) {
+			if (checkedRows[j].no == vegmaindish[i].MenuId) {
 				checkedRows.splice(j,1);
 			}
 		  }
 		 }
 });
 $('#table5').on('check.bs.table', function (e, row) {
-   checkedRows.push({name: row.dishname, price: row.price});
+   checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
 $('#table5').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no == row.no) {
+    if (value.no == row.MenuId) {
       checkedRows.splice(index,1);
     }
   });
  });
  $('#table5').on('check-all.bs.table', function (e, name, args) {
 	 $.each(ice, function(index, value) {
-      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+      checkedRows.push({no:value.MenuId, name: value.MenuName, price: value.MenuPrice});
   });
 });
 $('#table5').on('uncheck-all.bs.table', function (e, name, args) { 
       for(i=0;i<ice.length;i++){
 		  for(j=0;j<checkedRows.length;j++){
-			if (checkedRows[j].no == ice[i].no) {
+			if (checkedRows[j].no == ice[i].MenuId) {
 				checkedRows.splice(j,1);
 			}
 		  }
 		 }
 });
 $('#table6').on('check.bs.table', function (e, row) {
-   checkedRows.push({name: row.dishname, price: row.price});
+   checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
 $('#table6').on('uncheck.bs.table', function (e, row) {
   $.each(checkedRows, function(index, value) {
-    if (value.no == row.no) {
+    if (value.no == row.MenuId) {
       checkedRows.splice(index,1);
     }
   });
  });
  $('#table6').on('check-all.bs.table', function (e, name, args) {
 	 $.each(juices, function(index, value) {
-      checkedRows.push({no:value.no, name: value.dishname, price: value.price});
+      checkedRows.push({no:value.MenuId, name: value.MenuName, price: value.MenuPrice});
   });
 });
 $('#table6').on('uncheck-all.bs.table', function (e, name, args) { 
            for(i=0;i<juices.length;i++){
 		  for(j=0;j<checkedRows.length;j++){
-			if (checkedRows[j].no == juices[i].no) {
+			if (checkedRows[j].no == juices[i].MenuId) {
 				checkedRows.splice(j,1);
 			}
 		  }
