@@ -140,6 +140,113 @@ if(otp==random){
 	alert("OTP Incorrect");
 }
 });	
-	
 });
+function nonveg()
+{
+$('#veg').css('display','none');
+$('#maincontent').css('display','none');
+$('#salads').css('display','none');
+ if(starter.length==0){
+/*$('#nonveg').css("background-image", "url(images/6.jpg)"); 
+data-sort-name="MenuPrice"
+    data-sort-order="asc"*/ 
+ var NVStarters = Parse.Object.extend("NVStarters");
+        var query = new Parse.Query(NVStarters);
+		query.ascending("MenuPrice");
+        query.find({
+            success: function (results) {
+            for(var i = 0; i < results.length; i++) {
+               starter.push(results[i].toJSON());
+              } 
+			  $('#table1').bootstrapTable('load', starter);
+                }
+        });
+		var NVMain = Parse.Object.extend("NVMainDish");
+        var query = new Parse.Query(NVMain);
+		query.ascending("MenuPrice");
+        query.find({
+            success: function (results) {
+            for(var i = 0; i < results.length; i++) {
+               maindish.push(results[i].toJSON());
+              } 
+			  $('#table2').bootstrapTable('load', maindish);
+                }
+        });
+ }
+ else{
+	 $('#table1').bootstrapTable('load', starter);
+	  $('#table2').bootstrapTable('load', maindish);
+ }
+		$('#nonveg').css('display','block');
+}
+function veg()
+{
+$('#maincontent').css('display','none');
+$('#nonveg').css('display','none');
+$('#salads').css('display','none');
+//$('#veg').css("background-image", "url(images/7.jpg)");  
+ if(vegstarter.length==0){
+var VStarters = Parse.Object.extend("VStarters");
+        var query = new Parse.Query(VStarters);
+		query.ascending("MenuPrice");
+        query.find({
+            success: function (results) {
+            for(var i = 0; i < results.length; i++) {
+               vegstarter.push(results[i].toJSON());
+              } 
+			  $('#table3').bootstrapTable('load', vegstarter);
+                }
+        });
+		var VMain = Parse.Object.extend("VMainDish");
+        var query = new Parse.Query(VMain);
+		query.ascending("MenuPrice");
+        query.find({
+            success: function (results) {
+            for(var i = 0; i < results.length; i++) {
+               vegmaindish.push(results[i].toJSON());
+              } 
+			  $('#table4').bootstrapTable('load', vegmaindish);
+                }
+        });
+ }else{
+	  $('#table3').bootstrapTable('load', vegstarter);
+	  $('#table4').bootstrapTable('load', vegmaindish);
+ }
+$('#veg').css('display','block');
+}
+function juice()
+{
+$('#maincontent').css('display','none');
+$('#nonveg').css('display','none');
+//$('#salads').css("background-image", "url(images/9.jpg)");  
+$('#veg').css('display','none');
+if(ice.length==0){
+var iceCream = Parse.Object.extend("IceCreams");
+        var query = new Parse.Query(iceCream);
+		query.ascending("MenuPrice");
+        query.find({
+            success: function (results) {
+            for(var i = 0; i < results.length; i++) {
+               ice.push(results[i].toJSON());
+              } 
+			  $('#table5').bootstrapTable('load', ice);
+                }
+        });
+		var juice = Parse.Object.extend("FreshJuices");
+        var query = new Parse.Query(juice);
+		query.ascending("MenuPrice");
+        query.find({
+            success: function (results) {
+            for(var i = 0; i < results.length; i++) {
+               juices.push(results[i].toJSON());
+              } 
+			  $('#table6').bootstrapTable('load', juices);
+                }
+        });
+}else{
+	 $('#table5').bootstrapTable('load', ice);
+	  $('#table6').bootstrapTable('load', juices);
+}
+$('#salads').css('display','block');
+}
 			
