@@ -146,6 +146,10 @@ function nonveg()
 $('#veg').css('display','none');
 $('#maincontent').css('display','none');
 $('#salads').css('display','none');
+if(checkedRows.length==0){
+ $("#table1").bootstrapTable('uncheckAll');
+$("#table2").bootstrapTable('uncheckAll');
+}
  if(starter.length==0){
 /*$('#nonveg').css("background-image", "url(images/6.jpg)"); 
 data-sort-name="MenuPrice"
@@ -185,6 +189,10 @@ $('#maincontent').css('display','none');
 $('#nonveg').css('display','none');
 $('#salads').css('display','none');
 //$('#veg').css("background-image", "url(images/7.jpg)");  
+if(checkedRows.length==0){
+ $("#table3").bootstrapTable('uncheckAll');
+$("#table4").bootstrapTable('uncheckAll');
+}
  if(vegstarter.length==0){
 var VStarters = Parse.Object.extend("VStarters");
         var query = new Parse.Query(VStarters);
@@ -220,6 +228,10 @@ $('#maincontent').css('display','none');
 $('#nonveg').css('display','none');
 //$('#salads').css("background-image", "url(images/9.jpg)");  
 $('#veg').css('display','none');
+if(checkedRows.length==0){
+ $("#table5").bootstrapTable('uncheckAll');
+$("#table6").bootstrapTable('uncheckAll');
+}
 if(ice.length==0){
 var iceCream = Parse.Object.extend("IceCreams");
         var query = new Parse.Query(iceCream);
