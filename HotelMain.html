@@ -34,11 +34,11 @@ background-color:#329627;
 <script type="text/javascript">
 $( document ).ready(function() {
     $("input").prop('disabled', false);
-    if(localStorage.name!=undefined){
+    if(localStorage.MAIname!=undefined){
 	    $('#log').hide();
 		$('#sign').hide();
 		$('#logot').show();
-		$('#username').html(localStorage.name);
+		$('#username').html(localStorage.MAIname);
 		$('#username').show();
 		loginCheck=true;
 	}
