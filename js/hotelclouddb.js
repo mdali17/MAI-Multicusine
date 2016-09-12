@@ -108,7 +108,7 @@ $('#lgsubmit').click(function(){
 					$('#logot').show();
 					$('#username').html(userName);
 					$('#username').show();
-					localStorage.name=userName;
+					localStorage.MAIname=userName;
 					localStorage.add=add;
 					localStorage.mob=mob;
 					localStorage.mail=mailId;
