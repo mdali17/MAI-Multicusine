@@ -97,10 +97,34 @@ $('#cpwd').click(function(){
    $('#opass').attr('disabled', false);  
    $('#newpwd').hide();
    $('#cgpwd').hide();
+   $('#changepassword').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
    $('#changepassword').modal('show');
 });
-  $( "#datepicker" ).datepicker({dateFormat:"dd M yy",minDate:+0}).datepicker("setDate",new Date());
-  $('#timepicker').timepicker(); 
+  var min=new Date();
+  $( "#datepicker" ).datepicker({
+	  dateFormat:"dd M yy",
+	  minDate: new Date(),
+	 onSelect: function(selected,evnt) {
+         var Stime= new Date(selected);
+		 var Ctime=new Date();
+		 var time;
+		 if(Stime.setHours(0,0,0,0)==Ctime.setHours(0,0,0,0)){
+			 time=min.getHours() + 2 + ':'+ (min.getHours() >= 12 ? 'pm' : 'am')
+		 }else{
+			 time='10';
+		 }
+		 $('#timepicker').timepicker('option','minTime',time);
+	 }
+    });
+	  //}).datepicker("setDate",min);
+  $('#timepicker').timepicker({
+    maxTime: '11:00pm',
+    dropdown: true,
+    scrollbar: true
+    }); 
 $('#table1').on('check.bs.table', function (e, row) {
    checkedRows.push({no:row.MenuId, name: row.MenuName, price: row.MenuPrice});
 });
@@ -276,6 +300,10 @@ $('#fgsubmit').click(function(){
 	}
 	else
 	{
+		$('#fgsuccess').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
 	$('#fgsuccess').modal('show');
 	}
 	}
@@ -291,6 +319,7 @@ $('#fgssubmit').click(function(){
 });
 function reset()
 {
+$('html').css('overflow-y','visible');
 $("input").val("");
 $("#address").val("");
 $(':text').attr('disabled', false);
@@ -321,14 +350,26 @@ $("#cnpass").val("");
 }
 function signup()
 {
+	$('#signup').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
 $('#signup').modal('show');
 }
 function forget()
 {
+	$('#forget').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
 $('#forget').modal('show');
 }
 function login()
 {
+	$('#login').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
 $('#login').modal('show');
 }
 function logout()
@@ -350,6 +391,7 @@ $('#userprofile').modal('hide');
 }
 function order()
 {
+	 $('html').css("overflow","hidden");
     if(loginCheck){
        if(checkedRows.length!=0)
           {
@@ -364,11 +406,19 @@ function order()
     		});
    		 $('#output').append($('<hr/>'));
     		$('#output').append($('<p></p><br/>').text( " Total Amount  = " + total));	
+			$('#orders').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
     		$('#orders').modal('show'); 
 	  }else{
            $('#error').modal('show');
           }
     }else{
+		$('#orders').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
     $('#login').modal('show'); 
 }
 }
@@ -457,7 +507,11 @@ function success()
     $('#output1').append($('<p></p>').text( " Mobile  = " + localStorage.mob));
     $('#output1').append($('<p></p>').text( " Food Will be deliver on "+ date +" " +time));
     $('#output1').append($('<p></p>').text( " Payment Mode : Cash On Delivery(COD)"));
-    $('#ordersuccess').modal('show');
+    $('#ordersuccess').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
+	$('#ordersuccess').modal('show');
 }
 function nos(value, row,index) {
     return index+1;
@@ -469,6 +523,10 @@ $('#padd').attr('disabled', true);
 $('#pname').val(localStorage.name);
 $('#padd').val(localStorage.add);
 $('#pmob').val(localStorage.mob);
+$('#userprofile').modal({
+			backdrop: 'static',
+			keyboard: false
+			})
 $('#userprofile').modal('show');
 }
 function check()
