@@ -442,11 +442,11 @@ point.set("Mobile", $('#pmob').val());
 point.save(null, {
   success: function(point) {
     // Saved successfully.
-	localStorage.name=$('#pname').val();
+	localStorage.MAIname=$('#pname').val();
 	localStorage.add=$('#padd').val();
 	localStorage.mob=$('#pmob').val();
 	alert("Updated Successfully");
-	$('#username').html(localStorage.name);
+	$('#username').html(localStorage.MAIname);
   },
   error: function(point, error) {
     // The save failed.
@@ -502,7 +502,7 @@ function success()
     $('#output1').append($('<hr/>'));
     $('#output1').append($('<p></p>').text( " Total Amount  = " + total));
     $('#output1').append($('<p></p>').text( " Customer Details: "));
-    $('#output1').append($('<p></p>').text( " Name  = " + localStorage.name));
+    $('#output1').append($('<p></p>').text( " Name  = " + localStorage.MAIname));
     $('#output1').append($('<p></p>').text( " Address  = " + localStorage.add));
     $('#output1').append($('<p></p>').text( " Mobile  = " + localStorage.mob));
     $('#output1').append($('<p></p>').text( " Food Will be deliver on "+ date +" " +time));
@@ -520,7 +520,7 @@ function profile()
 {
 $(':text').attr('disabled', true);
 $('#padd').attr('disabled', true);
-$('#pname').val(localStorage.name);
+$('#pname').val(localStorage.MAIname);
 $('#padd').val(localStorage.add);
 $('#pmob').val(localStorage.mob);
 $('#userprofile').modal({
