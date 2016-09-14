@@ -112,7 +112,7 @@ $('#cpwd').click(function(){
 		 var Ctime=new Date();
 		 var time;
 		 if(Stime.setHours(0,0,0,0)==Ctime.setHours(0,0,0,0)){
-			 time=min.getHours() + 2 + ':'+ (min.getHours() >= 12 ? 'pm' : 'am')
+			 time=min.getHours() + 2 + ':'+ (min.getHours()+2 >= 12 ? 'pm' : 'am')
 		 }else{
 			 time='10';
 		 }
