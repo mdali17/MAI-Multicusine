@@ -89,6 +89,7 @@ $('#lgsubmit').click(function(){
            }
            else
            {
+			$(".Loadcenter").show();
 	    var UserObject = Parse.Object.extend("User_info");
         var query = new Parse.Query(UserObject);
         query.find({
@@ -102,6 +103,7 @@ $('#lgsubmit').click(function(){
 					var mob=object.get('Mobile');
 					var objId=object.id;
 					if(usermail==mailId && pwd==pass){
+					$(".Loadcenter").hide();
 					$('#login').modal('hide');
 					$('#log').hide();
 					$('#sign').hide();
@@ -120,6 +122,7 @@ $('#lgsubmit').click(function(){
 				}
 				}
 				if(count==results.length){
+					$(".Loadcenter").hide();
 					$("#invalid").css('display','block');
 				}
             }
