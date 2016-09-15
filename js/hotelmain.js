@@ -54,6 +54,30 @@ $( document ).ready(function() {
 	$("#mailid").focus();
 	}		
 	});
+	
+	$("#logmail").change(function() {
+		var mail=$('#logmail').val();
+		var cnt=0;
+	for(i=0;i<mail.length;i++)
+	{
+	if(mail[i]=="@"){
+	cnt=cnt+1;
+	}
+	}
+	if(cnt==1){
+	var dotCheck=mail.substring(mail.indexOf("@"));
+	if(mail.indexOf("@")==0||mail.indexOf(" ")!=-1||mail.indexOf("@")+1==mail.indexOf(".")||mail.indexOf(".")==mail.length-1||mail.indexOf("@")==mail.length-1||mail.indexOf(".")==mail.length-1||dotCheck.indexOf(".")<dotCheck.length-4){
+	$("#logmail").css('border','1px red solid');
+	$("#logmail").focus();
+	}else{
+	$("#logmail").css('border','1px solid #ccc');
+	}
+	}else{
+	$("#logmail").css('border','1px red solid');
+	$("#logmail").focus();
+	}		
+	});
+	
 	$("#rpwd").change(function() {
 	var rpwd=$('#rpwd').val();
 	if(pwd!=rpwd)
