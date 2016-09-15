@@ -13,6 +13,15 @@ background-color:#329627;
   html{
   overflow-x:hidden;
   }
+.Loadcenter {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(images/loader.gif) center no-repeat rgba(0, 0, 0, 0.5);
+   }
 </style>
 <link rel="icon" href="images\logo.PNG" type="image/x-icon">
 <link rel="stylesheet" href="css/bootstrap.css">
@@ -383,7 +392,7 @@ $( document ).ready(function() {
   </div>
 </div>
 
-<div id="nonveg" style="display:none" class="container col-sm-12">
+<div id="nonveg" style="display:none" class="table-responsive">
 <header><h3><strong>Non Vegetarian Dishes</strong></h3></header><br/>
 <div id="choose" style="text-align:right">
 <button id="order" class="btn btn-info" onclick="order();">Order</button>
@@ -423,7 +432,7 @@ $( document ).ready(function() {
 	</tbody>
 	</table>
 </div>
-<div id="veg" style="display:none" class="container col-sm-12">
+<div id="veg" style="display:none" class="table-responsive">
 <header><h3><strong>Vegetarian Dishes</strong></h3></header><br/>
 <div id="choose" style="text-align:right">
 <button id="order" class="btn btn-info" onclick="order();">Order</button>
@@ -464,7 +473,7 @@ $( document ).ready(function() {
 	</table>
 </div>
 
-<div id="salads" style="display:none" class="container col-sm-12">
+<div id="salads" style="display:none" class="table-responsive">
 <header><h3><strong>Ice Creams & Juices</strong></h3></header><br/>
 <div id="choose" style="text-align:right">
 <button id="order" class="btn btn-info" onclick="order();">Order</button>
@@ -504,5 +513,6 @@ $( document ).ready(function() {
 	</tbody>
 	</table>
 </div>
+ <div class="Loadcenter" style="display:none"></div>
 </body>
 </html>
