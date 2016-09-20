@@ -34,6 +34,7 @@ background-color:#329627;
 <script src="js/bootstrap.js"></script>
 <script src="js/bootstrap-table.js"></script>
 <script src="js/bootstrap-time.js"></script>
+<script src="js/bootbox.js"></script>
 <script src="js/timepicker.js"></script>
 <script type="text/javascript" src="js/hotelmain.js">
 </script>
@@ -337,7 +338,7 @@ $( document ).ready(function() {
         <h4 class="modal-title">Alert</h4>
       </div>
       <div class="modal-body">
-        <p><b>Please select atleast one dish from below menu</b></p>
+        <p id="modError"><b>Please select atleast one dish from below menu</b></p>
       </div>
       <div class="modal-footer">
 	<button type="button" onclick="reset();" data-dismiss="modal" class="btn btn-default">Ok</button>
@@ -392,121 +393,46 @@ $( document ).ready(function() {
   </div>
 </div>
 
-<div id="nonveg" style="display:none" class="table-responsive">
-<header><h3><strong>Non Vegetarian Dishes</strong></h3></header><br/>
-<div id="choose" style="text-align:right">
+<div id="items" style="display:none" class="table-responsive">
+<div id="itemHeader"></div><br/>
+<div id="adminChoose" class="btn-group pull-right" style="display:none;">
+<button id="saveDish" class="btn btn-info" onclick="saveDish();" style="display:none;">Save Dish</button>
+<button id="addDish" class="btn btn-info" onclick="addDish();">Add Dish</button>
+<button id="modDish" class="btn btn-info" onclick="modDish();">Modify Dish</button>
+<button id="delDish" class="btn btn-info" onclick="delDish();">Delete Dish</button>
+</div><br/>
+<div id="userChoose" style="text-align:right;display:none;">
 <button id="order" class="btn btn-info" onclick="order();">Order</button>
-</div>
-<h4><strong>Starters</strong></h4>
+</div><br/>
+<div id="itemsubHeader"></div>
 <table id="table1"
 	data-toggle="table"
-	data-show-columns="true"
-	data-pagination="true"
-	data-height="520">
+	data-show-columns="false"
+	data-pagination="true">
 	<thead>
 	<tr>
 	<th data-field="state" data-checkbox="true"></th>
 	<th data-field="MenuId" data-sortable="true">Dish Id</th>
 	<th data-field="MenuName" data-sortable="true">Dish Name</th>
 	<th data-field="MenuPrice" data-sortable="true">Price</th>
+	<th data-field="editbtn" data-formatter="editBtnformatter">Edit</th>
 	</tr>
 	</thead>
 	<tbody>
 	</tbody>
 	</table><br/>
-<h4><strong>Main Dishes</strong></h4>
+<div id="itemsubHeader1"></h4></div>
 <table id="table2"
 	data-toggle="table"
-	data-show-columns="true"
-	data-pagination="true"
-	data-height="520">
+	data-show-columns="false"
+	data-pagination="true">
 	<thead>
 	<tr>
 	<th data-field="state" data-checkbox="true"></th>
 	<th data-field="MenuId" data-sortable="true">Dish Id</th>
 	<th data-field="MenuName" data-sortable="true">Dish Name</th>
 	<th data-field="MenuPrice" data-sortable="true">Price</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table>
-</div>
-<div id="veg" style="display:none" class="table-responsive">
-<header><h3><strong>Vegetarian Dishes</strong></h3></header><br/>
-<div id="choose" style="text-align:right">
-<button id="order" class="btn btn-info" onclick="order();">Order</button>
-</div>
-<h4><strong>Starters</strong></h4>
-<table id="table3"
-	data-toggle="table"
-	data-show-columns="true"
-	data-pagination="true"
-	data-height="260">
-	<thead>
-	<tr>
-	<th data-field="state" data-checkbox="true"></th>
-	<th data-field="MenuId" data-sortable="true">Dish Id</th>
-	<th data-field="MenuName" data-sortable="true">Dish Name</th>
-	<th data-field="MenuPrice" data-sortable="true">Price</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table><br/>
-<h4><strong>Main Dishes</strong></h4>
-<table id="table4"
-	data-toggle="table"
-	data-show-columns="true"
-	data-pagination="true"
-	data-height="410">
-	<thead>
-	<tr>
-	<th data-field="state" data-checkbox="true"></th>
-	<th data-field="MenuId" data-sortable="true">Dish Id</th>
-	<th data-field="MenuName" data-sortable="true">Dish Name</th>
-	<th data-field="MenuPrice" data-sortable="true">Price</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table>
-</div>
-
-<div id="salads" style="display:none" class="table-responsive">
-<header><h3><strong>Ice Creams & Juices</strong></h3></header><br/>
-<div id="choose" style="text-align:right">
-<button id="order" class="btn btn-info" onclick="order();">Order</button>
-</div>
-<h4><strong>Ice Creams</strong></h4>
-<table id="table5"
-	data-toggle="table"
-	data-show-columns="true"
-	data-pagination="true"
-	data-height="300">
-	<thead>
-	<tr>
-	<th data-field="state" data-checkbox="true"></th>
-	<th data-field="MenuId" data-sortable="true">Dish Id</th>
-	<th data-field="MenuName" data-sortable="true">Dish Name</th>
-	<th data-field="MenuPrice" data-sortable="true">Price</th>
-	</tr>
-	</thead>
-	<tbody>
-	</tbody>
-	</table><br/>
-<h4><strong>Fresh Juices</strong></h4>
-<table id="table6"
-	data-toggle="table"
-	data-show-columns="true"
-	data-pagination="true"
-	data-height="410">
-	<thead>
-	<tr>
-	<th data-field="state" data-checkbox="true"></th>
-	<th data-field="MenuId" data-sortable="true">Dish Id</th>
-	<th data-field="MenuName" data-sortable="true">Dish Name</th>
-	<th data-field="MenuPrice" data-sortable="true">Price</th>
+	<th data-field="editbtn" data-formatter="editBtnformatter">Edit</th>
 	</tr>
 	</thead>
 	<tbody>
