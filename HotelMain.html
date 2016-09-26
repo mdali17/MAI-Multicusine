@@ -235,7 +235,7 @@ $( document ).ready(function() {
 	    Mobile No: <input type="text"  id="pmob" maxlength="10" class="form-control"/><br/>
       </div>
       <div class="modal-footer">
-	<button type="button" onclick="update();" class="btn btn-default">Update</button>
+	<button type="button" onclick="updateUserInfo();" class="btn btn-default">Update</button>
         <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
       </div>
     </div>
@@ -255,12 +255,12 @@ $( document ).ready(function() {
         <div id="pwderror1" style="display:none;text-align:center;color:red">Incorrect Password</div>
 		<div id="pwderror2" style="display:none;text-align:center;color:red">New Password and Confirm Password doesn't Match</div>
         Old Password : <input type="password" id="opass" maxlength="10" class="form-control"/><br/>
-       <div id="ok"><button type="button" onclick="check();" class="btn btn-default">Ok</button></div>
+       <div id="ok"><button type="button" onclick="checkOldPwd();" class="btn btn-default">Ok</button></div>
        <div id="newpwd"> New Password : <input type="password" id="npass" maxlength="20" class="form-control"/><br/>
 	                     Confirm Password : <input type="password" id="cnpass" maxlength="20" class="form-control"/></div><br/>
       </div>
       <div id="cgpwd" class="modal-footer">
-	<button type="button" onclick="change();" class="btn btn-default">Change</button>
+	<button type="button" onclick="changePwd();" class="btn btn-default">Change</button>
         <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
       </div>
     </div>
