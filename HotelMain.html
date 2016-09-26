@@ -49,11 +49,10 @@ background-color:#329627;
 $( document ).ready(function() {
     $("input").prop('disabled', false);
     if(localStorage.MAIname!=undefined){
-	    $('#log').hide();
-		$('#sign').hide();
-		$('#logot').show();
-		$('#username').html(localStorage.MAIname);
-		$('#username').show();
+	    $('#sign').text(localStorage.MAIname);
+	    $("#sign").attr("onclick","profile()");
+	    $('#log').text('Logout');
+	    $("#log").attr("onclick","logout()");
 		loginCheck=true;
 	}
     $("#state").change(function() {
